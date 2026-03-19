@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第2章（残缺版） | 坐标系内</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829# 第2章 文本表示与词向量## 2.1 初级分词技术### 一、分词初印象**分词**：tokenization分词任务的质量，决定上层建筑的稳固程度（信息检索 &#x2F; 机器翻译 &#x2F; 情感分析）**分词**的任务，是把连续的文本序列切分成具有独立语义的基本单元。- 天然有空格作为分隔符的语言：分词有边界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章（残缺版）">
+<meta property="og:url" content="http://example.com/2026/02/12/%E7%AC%AC2%E7%AB%A0%EF%BC%88%E6%AE%8B%E7%BC%BA%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="坐标系内">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829# 第2章 文本表示与词向量## 2.1 初级分词技术### 一、分词初印象**分词**：tokenization分词任务的质量，决定上层建筑的稳固程度（信息检索 &#x2F; 机器翻译 &#x2F; 情感分析）**分词**的任务，是把连续的文本序列切分成具有独立语义的基本单元。- 天然有空格作为分隔符的语言：分词有边界">
+<meta property="og:locale" content="an_CN">
+<meta property="article:published_time" content="2026-02-12T15:31:11.000Z">
+<meta property="article:modified_time" content="2026-02-12T15:33:46.042Z">
+<meta property="article:author" content="Sylvia Xu">
+<meta property="article:tag" content="NLP，自然语言处理，jieba，分词">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="坐标系内" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">坐标系内</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">和我一起探索未知</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第2章（残缺版）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/%E7%AC%AC2%E7%AB%A0%EF%BC%88%E6%AE%8B%E7%BC%BA%E7%89%88%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T15:31:11.000Z" itemprop="datePublished">2026-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/datawhale/">datawhale</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第2章（残缺版）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 第2章 文本表示与词向量</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 2.1 初级分词技术</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 一、分词初印象</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**分词**</span>：tokenization</span><br><span class="line"></span><br><span class="line">分词任务的质量，决定上层建筑的稳固程度（信息检索 / 机器翻译 / 情感分析）</span><br><span class="line"></span><br><span class="line"><span class="strong">**分词**</span>的任务，是把连续的文本序列切分成具有独立语义的基本单元。</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 天然有空格作为分隔符的语言：分词有边界</span><br><span class="line"><span class="bullet">-</span> 连续的字符流：分词无明确边界</span><br><span class="line"></span><br><span class="line"><span class="strong">**分词出现差错的级联效应**</span></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">### 二、Jieba</span></span><br><span class="line"></span><br><span class="line">现代大语言模型更多采用子词（subword）等切分策略，但 jieba 仍然经典永不过时。</span><br><span class="line"></span><br><span class="line"><span class="section">#### 2.1 jieba 安装（Python 中文分词库之一）</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**2.1.1 激活虚拟环境**</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">conda activate llm</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2.1.2 安装 jieba 库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jieba        <span class="comment"># 安装jieba库</span></span><br><span class="line">pip show jieba           <span class="comment"># 查看jieba版本信息，确认是否安装成功</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-基于规则与词典"><a href="#2-2-基于规则与词典" class="headerlink" title="2.2 基于规则与词典"></a>2.2 基于规则与词典</h4><p>Jieba 的默认模式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">前缀词典（Trie树）</span><br><span class="line">    ↓</span><br><span class="line">有向无环图 DAG（包含句子中所有可能词语组合）</span><br><span class="line">    ↓</span><br><span class="line">动态规划算法</span><br><span class="line">    ↓</span><br><span class="line">概率最大路径作为最终分词结果</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-1-Log概率与动态规划"><a href="#2-2-1-Log概率与动态规划" class="headerlink" title="2.2.1 Log概率与动态规划"></a>2.2.1 Log概率与动态规划</h5><p><strong>问题1</strong>：将大量小于 1 的概率值直接相乘，易导致结果趋近于 0，造成浮点数下溢，多条路径之间的差异被缩小，无法比较优劣<br>→ <strong>数值计算的稳定性</strong></p>
+<p><strong>解决方法</strong>：jieba 采用了<strong>对数概率技术</strong>，利用对数函数 log 的性质，<strong>将概率的累乘转换为 log 概率的累加</strong>。寻找概率最大值就等价于寻找 log 概率之和的最大值。</p>
+<p><strong>问题2</strong>：暴力计算所有可能路径带来的巨大计算量</p>
+<p><strong>解决方法</strong>：jieba 引入动态规划的思想。从句子的末尾开始，从后向前递推计算到每个位置的最优切分路径及其 log 概率之和，并记录下来。最终，从句子开头出发，根据记录好的最优路径信息，就能反推出整个句子的最优分词结果。</p>
+<p>动态规划要做的就是<strong>在句子的每一个位置上</strong>，自动比较所有路径，实现在所有可能后续切分中，挑出 log 概率和最大的那条路径。</p>
+<p><strong>Tips：</strong></p>
+<ol>
+<li>将结果的量化以加法呈现，<strong>累加放大</strong>了路径的优劣差异。</li>
+<li>当词数量达到一定程度后，BFA 无法实现功能，用<strong>动态规划</strong>算法优化。</li>
+</ol>
+<h5 id="2-2-2-jieba-实践"><a href="#2-2-2-jieba-实践" class="headerlink" title="2.2.2 jieba 实践"></a>2.2.2 jieba 实践</h5><p>基于词典构建 DAG 并利用动态规划寻找最大概率路径的方法，在 jieba 中对应的就是<strong>精确模式</strong>（尽可能精确切分句子）。<br>&#96;&#96;&#96;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/%E7%AC%AC2%E7%AB%A0%EF%BC%88%E6%AE%8B%E7%BC%BA%E7%89%88%EF%BC%89/" data-id="cuid-BtbvWMW-RPgqobFlgct-" data-title="第2章（残缺版）" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP%EF%BC%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%8Cjieba%EF%BC%8C%E5%88%86%E8%AF%8D/" rel="tag">NLP，自然语言处理，jieba，分词</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/20/Task01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Task01
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/09/base-llm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">base-llm学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datawhale/">datawhale</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP%EF%BC%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%8CAnaconda%EF%BC%8C%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" rel="tag">NLP，自然语言处理，Anaconda，环境安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP%EF%BC%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%8Cjieba%EF%BC%8C%E5%88%86%E8%AF%8D/" rel="tag">NLP，自然语言处理，jieba，分词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datawhale-agent-skill/" rel="tag">datawhale, agent, skill</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/NLP%EF%BC%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%8CAnaconda%EF%BC%8C%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" style="font-size: 10px;">NLP，自然语言处理，Anaconda，环境安装</a> <a href="/tags/NLP%EF%BC%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%8Cjieba%EF%BC%8C%E5%88%86%E8%AF%8D/" style="font-size: 10px;">NLP，自然语言处理，jieba，分词</a> <a href="/tags/datawhale-agent-skill/" style="font-size: 10px;">datawhale, agent, skill</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/20/Task01/">Task01</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/12/%E7%AC%AC2%E7%AB%A0%EF%BC%88%E6%AE%8B%E7%BC%BA%E7%89%88%EF%BC%89/">第2章（残缺版）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/base-llm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">base-llm学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Sylvia Xu<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
